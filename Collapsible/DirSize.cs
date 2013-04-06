@@ -108,7 +108,7 @@ namespace Collapsible
                     //Console.WriteLine(root + info.Length.ToString());
                     b += info.Length;
                     this.FileName = fi.FullName.ToString();
-                    System.Diagnostics.Debug.WriteLine(this.FileName + "\n");
+                    //System.Diagnostics.Debug.WriteLine(this.FileName + "\n");
                 }
 
                 // Now find all the subdirectories under this directory.

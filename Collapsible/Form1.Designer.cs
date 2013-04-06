@@ -36,29 +36,34 @@
             this.bottomLabelProgress = new System.Windows.Forms.Label();
             this.topLabelProgress = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.picSpinBalls = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ImgScrollBell = new System.Windows.Forms.PictureBox();
             this.btnCollapse = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.Details = new System.Windows.Forms.Label();
+            this.lblUpdateFile = new System.Windows.Forms.Label();
             this.textBoxDetail = new System.Windows.Forms.TextBox();
+            this.Details = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSpinBalls)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgScrollBell)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // progressBar1
             // 
-            this.progressBar1.ForeColor = System.Drawing.Color.Maroon;
-            this.progressBar1.Location = new System.Drawing.Point(15, 20);
+            this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(114)))), ((int)(((byte)(236)))));
+            this.progressBar1.Location = new System.Drawing.Point(57, 20);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(493, 23);
+            this.progressBar1.Size = new System.Drawing.Size(452, 23);
             this.progressBar1.TabIndex = 1;
             this.progressBar1.UseWaitCursor = true;
             // 
@@ -119,6 +124,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.picSpinBalls);
             this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Location = new System.Drawing.Point(161, 34);
             this.groupBox1.Name = "groupBox1";
@@ -126,10 +132,19 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
+            // picSpinBalls
+            // 
+            this.picSpinBalls.Image = global::Collapsible.Properties.Resources._301_32;
+            this.picSpinBalls.Location = new System.Drawing.Point(13, 15);
+            this.picSpinBalls.Name = "picSpinBalls";
+            this.picSpinBalls.Size = new System.Drawing.Size(33, 33);
+            this.picSpinBalls.TabIndex = 4;
+            this.picSpinBalls.TabStop = false;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Location = new System.Drawing.Point(14, 18);
+            this.groupBox2.Location = new System.Drawing.Point(8, 14);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(138, 85);
             this.groupBox2.TabIndex = 13;
@@ -139,7 +154,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(5, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 16);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(124, 67);
@@ -149,9 +164,11 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.ImgScrollBell);
             this.groupBox3.Controls.Add(this.btnCollapse);
             this.groupBox3.Controls.Add(this.bottomLabelProgress);
             this.groupBox3.Controls.Add(this.labelFileDownloadSize);
+            this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.Location = new System.Drawing.Point(6, 4);
@@ -160,6 +177,15 @@
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             // 
+            // ImgScrollBell
+            // 
+            this.ImgScrollBell.Image = global::Collapsible.Properties.Resources._294_2;
+            this.ImgScrollBell.Location = new System.Drawing.Point(8, 105);
+            this.ImgScrollBell.Name = "ImgScrollBell";
+            this.ImgScrollBell.Size = new System.Drawing.Size(138, 10);
+            this.ImgScrollBell.TabIndex = 4;
+            this.ImgScrollBell.TabStop = false;
+            // 
             // btnCollapse
             // 
             this.btnCollapse.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -167,7 +193,7 @@
             this.btnCollapse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCollapse.ForeColor = System.Drawing.Color.Transparent;
             this.btnCollapse.Image = global::Collapsible.Properties.Resources.downarrowfw;
-            this.btnCollapse.Location = new System.Drawing.Point(170, 91);
+            this.btnCollapse.Location = new System.Drawing.Point(168, 91);
             this.btnCollapse.Name = "btnCollapse";
             this.btnCollapse.Size = new System.Drawing.Size(24, 24);
             this.btnCollapse.TabIndex = 0;
@@ -196,24 +222,24 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox4.Controls.Add(this.lblUpdateFile);
             this.groupBox4.Controls.Add(this.textBoxDetail);
             this.groupBox4.Controls.Add(this.Details);
             this.groupBox4.Location = new System.Drawing.Point(6, 125);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(690, 227);
+            this.groupBox4.Size = new System.Drawing.Size(690, 185);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             // 
-            // Details
+            // lblUpdateFile
             // 
-            this.Details.AutoSize = true;
-            this.Details.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Details.ForeColor = System.Drawing.Color.White;
-            this.Details.Location = new System.Drawing.Point(569, 51);
-            this.Details.Name = "Details";
-            this.Details.Size = new System.Drawing.Size(94, 16);
-            this.Details.TabIndex = 2;
-            this.Details.Text = "View Details";
+            this.lblUpdateFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateFile.ForeColor = System.Drawing.Color.White;
+            this.lblUpdateFile.Location = new System.Drawing.Point(10, 103);
+            this.lblUpdateFile.Name = "lblUpdateFile";
+            this.lblUpdateFile.Size = new System.Drawing.Size(668, 61);
+            this.lblUpdateFile.TabIndex = 4;
+            this.lblUpdateFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxDetail
             // 
@@ -221,24 +247,34 @@
             this.textBoxDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDetail.ForeColor = System.Drawing.Color.White;
-            this.textBoxDetail.Location = new System.Drawing.Point(13, 37);
+            this.textBoxDetail.Location = new System.Drawing.Point(155, 30);
             this.textBoxDetail.Multiline = true;
             this.textBoxDetail.Name = "textBoxDetail";
             this.textBoxDetail.ReadOnly = true;
-            this.textBoxDetail.Size = new System.Drawing.Size(662, 102);
+            this.textBoxDetail.Size = new System.Drawing.Size(478, 58);
             this.textBoxDetail.TabIndex = 3;
+            // 
+            // Details
+            // 
+            this.Details.AutoSize = true;
+            this.Details.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Details.ForeColor = System.Drawing.Color.White;
+            this.Details.Location = new System.Drawing.Point(43, 55);
+            this.Details.Name = "Details";
+            this.Details.Size = new System.Drawing.Size(94, 16);
+            this.Details.TabIndex = 2;
+            this.Details.Text = "View Details";
             // 
             // CP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(64)))), ((int)(((byte)(66)))));
-            this.ClientSize = new System.Drawing.Size(702, 430);
+            this.ClientSize = new System.Drawing.Size(702, 388);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.labelProgressPercentage);
             this.Controls.Add(this.topLabelProgress);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CP";
@@ -246,10 +282,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CP";
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picSpinBalls)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgScrollBell)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -274,6 +312,9 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox textBoxDetail;
         private System.Windows.Forms.Label Details;
+        private System.Windows.Forms.PictureBox ImgScrollBell;
+        private System.Windows.Forms.PictureBox picSpinBalls;
+        private System.Windows.Forms.Label lblUpdateFile;
     }
 }
 

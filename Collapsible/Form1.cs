@@ -12,6 +12,7 @@ namespace Collapsible
 {
     public partial class CP : Form
     {
+       
         bool btnCollapseClicked = true;
         public CP()
         {
@@ -62,49 +63,138 @@ namespace Collapsible
         {
            ////for (int i = 0; i <= 100; i += 20)
            ////{
-            backgroundWorker1.ReportProgress(10);
-            System.Threading.Thread.Sleep(1000);
-            backgroundWorker1.ReportProgress(20);
-            System.Threading.Thread.Sleep(1000);
-            backgroundWorker1.ReportProgress(30);
-            System.Threading.Thread.Sleep(1000);
-            backgroundWorker1.ReportProgress(40);
-            System.Threading.Thread.Sleep(1000);
-            backgroundWorker1.ReportProgress(50);
-            System.Threading.Thread.Sleep(1000);
-            backgroundWorker1.ReportProgress(60);
-            System.Threading.Thread.Sleep(1000);
-            backgroundWorker1.ReportProgress(70);
-            System.Threading.Thread.Sleep(1000);
-            backgroundWorker1.ReportProgress(80);
-            System.Threading.Thread.Sleep(1000);
-            backgroundWorker1.ReportProgress(90);
-            System.Threading.Thread.Sleep(1000);
-            backgroundWorker1.ReportProgress(100);
-            System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(10,"10");
+            //System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(20,"20");
+            //System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(30,"30");
+            //System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(40, "30");
+            //System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(50, "30");
+            //System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(60, "30");
+            //System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(70, "30");
+            //System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(80, "30");
+            //System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(90, "30");
+            //System.Threading.Thread.Sleep(1000);
+            //backgroundWorker1.ReportProgress(100, "30");
+            //System.Threading.Thread.Sleep(1000);
            ////} 
 
+            DirSize _dir = new DirSize();
+            System.IO.DirectoryInfo directory =
+            new System.IO.DirectoryInfo(System.IO.Path.GetTempPath());
+          
 
-           
-         
-           
+           int fileEnumPRogress = (int)uint.MinValue;
+            foreach (System.IO.FileInfo file in directory.GetFiles())
+            {
+                try
+                {
+                    fileEnumPRogress++;
+                    if (fileEnumPRogress != 100)
+                    {
+                        
+                        System.Threading.Thread.Sleep(1000);
+                        backgroundWorker1.ReportProgress(fileEnumPRogress, "Deleting...\n"+ (file.FullName));
+                        file.Delete();
+                        System.Diagnostics.Debug.WriteLine(file + "\n");
 
+                    }
+                    
+
+                }
+                ///file in use
+                catch (System.IO.IOException)
+                {
+                    fileEnumPRogress++;
+                    System.Diagnostics.Debug.WriteLine(file.FullName + "\n");
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "file in use...\n" + file.FullName);
+
+                }
+                ///no rights to access the file
+                catch (System.UnauthorizedAccessException)
+                {
+                    fileEnumPRogress++;
+                    System.Diagnostics.Debug.WriteLine(file.FullName + "\n");
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "no rights to access the file...\n" + file.FullName);
+                }
+            }
+
+
+            foreach (System.IO.DirectoryInfo subDirectory in directory.GetDirectories())
+            {
+                try
+                {
+                    fileEnumPRogress++;
+                    System.Threading.Thread.Sleep(1000);
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "Deleting...\n" + (subDirectory.FullName));
+                    subDirectory.Delete(true);
+                    System.Diagnostics.Debug.WriteLine(subDirectory + "\n");
+                    
+                }
+
+                catch (System.UnauthorizedAccessException)
+                {
+                    ///no rights to access the file
+                    fileEnumPRogress++;
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "Deleting...\n" + (subDirectory.FullName));
+                    System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "\n");
+                }
+            }
+
+
+
+
+            backgroundWorker1.ReportProgress(100, "");
+
+            
+
+
+
+
+
+
+
+
+          
+            
 
            e.Result = 1;
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+   
+        private void backgroundWorker1_ProgressChanged(object sender, 
+            ProgressChangedEventArgs e)
         {
             
+                this.labelProgressPercentage.Text = 
+                    e.ProgressPercentage.ToString() + " % ";
+                this.progressBar1.Value = 
+                    e.ProgressPercentage;
+                this.textBoxDetail.Text = 
+                    e.ProgressPercentage.ToString() + " % ";
+                this.textBoxDetail.Refresh();
 
-                this.labelProgressPercentage.Text = e.ProgressPercentage.ToString() + " % ";
-                this.progressBar1.Value = e.ProgressPercentage;
-                this.textBoxDetail.Text = e.ProgressPercentage.ToString() + " % ";
-               
-          
+                if (e.ProgressPercentage == 100)
+                {
+                    this.ImgScrollBell.Image = null;
+                }
+
+
+                this.lblUpdateFile.Text = e.UserState.ToString();
         }
 
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        
+
+        
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender,
+            RunWorkerCompletedEventArgs e)
         {
             if (e.Cancelled)
                 Console.WriteLine("You canceled!");
