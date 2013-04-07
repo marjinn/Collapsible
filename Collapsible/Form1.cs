@@ -100,7 +100,7 @@ namespace Collapsible
                     {
                         
                         System.Threading.Thread.Sleep(1000);
-                        backgroundWorker1.ReportProgress(fileEnumPRogress, "Deleting...\n"+ (file.FullName));
+                        backgroundWorker1.ReportProgress(fileEnumPRogress, "\nDeleting...\n"+ file.FullName + "\n");
                         file.Delete();
                         System.Diagnostics.Debug.WriteLine(file + "\n");
 
@@ -108,20 +108,20 @@ namespace Collapsible
                     
 
                 }
-                ///file in use
+                ///\nfile in use
                 catch (System.IO.IOException)
                 {
                     fileEnumPRogress++;
-                    System.Diagnostics.Debug.WriteLine(file.FullName + "\n");
-                    backgroundWorker1.ReportProgress(fileEnumPRogress, "file in use...\n" + file.FullName);
+                    System.Diagnostics.Debug.WriteLine(file.FullName + "\n" + "\n");
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\nfile in use...\n" + file.FullName + "\n");
 
                 }
-                ///no rights to access the file
+                ///\nno rights to access the file
                 catch (System.UnauthorizedAccessException)
                 {
                     fileEnumPRogress++;
-                    System.Diagnostics.Debug.WriteLine(file.FullName + "\n");
-                    backgroundWorker1.ReportProgress(fileEnumPRogress, "no rights to access the file...\n" + file.FullName);
+                    System.Diagnostics.Debug.WriteLine(file.FullName + "\n" + "\n");
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\nno rights to access the file...\n" + file.FullName + "\n");
                 }
             }
 
@@ -132,7 +132,7 @@ namespace Collapsible
                 {
                     fileEnumPRogress++;
                     System.Threading.Thread.Sleep(1000);
-                    backgroundWorker1.ReportProgress(fileEnumPRogress, "Deleting...\n" + (subDirectory.FullName));
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\nDeleting...\n" + subDirectory.FullName + "\n");
                     subDirectory.Delete(true);
                     System.Diagnostics.Debug.WriteLine(subDirectory + "\n");
                     
@@ -140,10 +140,10 @@ namespace Collapsible
 
                 catch (System.UnauthorizedAccessException)
                 {
-                    ///no rights to access the file
+                    ///\nno rights to access the file
                     fileEnumPRogress++;
-                    backgroundWorker1.ReportProgress(fileEnumPRogress, "Deleting...\n" + (subDirectory.FullName));
-                    System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "\n");
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\nDeleting...\n" + subDirectory.FullName + "\n");
+                    System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "\n" + "\n");
                 }
             }
 
@@ -176,9 +176,9 @@ namespace Collapsible
                     e.ProgressPercentage.ToString() + " % ";
                 this.progressBar1.Value = 
                     e.ProgressPercentage;
-                this.textBoxDetail.Text = 
-                    e.ProgressPercentage.ToString() + " % ";
-                this.textBoxDetail.Refresh();
+                //this.textBoxDetail.Text = 
+                //    e.ProgressPercentage.ToString() + " % ";
+                //this.textBoxDetail.Refresh();
 
                 if (e.ProgressPercentage == 100)
                 {
@@ -187,6 +187,7 @@ namespace Collapsible
 
 
                 this.lblUpdateFile.Text = e.UserState.ToString();
+                this.textBoxDetail.Text += (e.UserState.ToString() + "\r\n");
         }
 
         

@@ -235,9 +235,9 @@
             // 
             this.lblUpdateFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpdateFile.ForeColor = System.Drawing.Color.White;
-            this.lblUpdateFile.Location = new System.Drawing.Point(10, 103);
+            this.lblUpdateFile.Location = new System.Drawing.Point(110, 157);
             this.lblUpdateFile.Name = "lblUpdateFile";
-            this.lblUpdateFile.Size = new System.Drawing.Size(668, 61);
+            this.lblUpdateFile.Size = new System.Drawing.Size(568, 25);
             this.lblUpdateFile.TabIndex = 4;
             this.lblUpdateFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -247,11 +247,12 @@
             this.textBoxDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDetail.ForeColor = System.Drawing.Color.White;
-            this.textBoxDetail.Location = new System.Drawing.Point(155, 30);
+            this.textBoxDetail.Location = new System.Drawing.Point(8, 30);
             this.textBoxDetail.Multiline = true;
             this.textBoxDetail.Name = "textBoxDetail";
             this.textBoxDetail.ReadOnly = true;
-            this.textBoxDetail.Size = new System.Drawing.Size(478, 58);
+            this.textBoxDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxDetail.Size = new System.Drawing.Size(670, 116);
             this.textBoxDetail.TabIndex = 3;
             // 
             // Details
@@ -259,7 +260,7 @@
             this.Details.AutoSize = true;
             this.Details.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Details.ForeColor = System.Drawing.Color.White;
-            this.Details.Location = new System.Drawing.Point(43, 55);
+            this.Details.Location = new System.Drawing.Point(10, 164);
             this.Details.Name = "Details";
             this.Details.Size = new System.Drawing.Size(94, 16);
             this.Details.TabIndex = 2;
