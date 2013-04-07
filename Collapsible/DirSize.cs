@@ -198,6 +198,12 @@ namespace Collapsible
                     ///no rights to access the file
                     System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "\n");
                 }
+                   
+                catch(System.IO.IOException)
+                {
+                    ///directory in use
+                    System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "\n");
+                }
             }
         }
 

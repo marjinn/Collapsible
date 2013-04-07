@@ -145,6 +145,14 @@ namespace Collapsible
                     backgroundWorker1.ReportProgress(fileEnumPRogress, "\nDeleting...\n" + subDirectory.FullName + "\n");
                     System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "\n" + "\n");
                 }
+
+                catch (System.IO.IOException)
+                {
+                    ///directory in use
+                    fileEnumPRogress++;
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\ndirectory in use...\n" + subDirectory.FullName + "\n");
+                    System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "\n" + "\n");
+                }
             }
 
 
