@@ -13,10 +13,31 @@ namespace Collapsible
     public partial class CP : Form
     {
        
+        //ClassVariablesTobe used FI this is called
+        //forTextBoxText
+
+        private string strRichBoxText = string.Empty;
+
+        public string StrRichBoxText
+        {
+            get {
+                return strRichBoxText;
+            }
+            set {
+                strRichBoxText = value;
+            }
+        }
+
+
+        //all label Values like lblUpdateFile
+
+
+
         bool btnCollapseClicked = true;
         public CP()
         {
             InitializeComponent();
+            this.Size = new Size(702, 131);
             backgroundWorker1.RunWorkerAsync("Hello to worker");
 
             
@@ -30,7 +51,7 @@ namespace Collapsible
             {
                 this.toolTip1.SetToolTip(this.btnCollapse, "Fewer Details");
                 this.Details.Text = string.Empty;
-             this.Size = new Size(702, 430);
+                this.Size = new Size(702, 347);
             this.btnCollapse.Image = Properties.Resources.uparrowfw;
             this.btnCollapseClicked = false;
 
@@ -64,25 +85,25 @@ namespace Collapsible
            ////for (int i = 0; i <= 100; i += 20)
            ////{
             //backgroundWorker1.ReportProgress(10,"10");
-            //System.Threading.Thread.Sleep(1000);
+            ////System.Threading.Thread.Sleep(500);
             //backgroundWorker1.ReportProgress(20,"20");
-            //System.Threading.Thread.Sleep(1000);
+            ////System.Threading.Thread.Sleep(500);
             //backgroundWorker1.ReportProgress(30,"30");
-            //System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(500);
             //backgroundWorker1.ReportProgress(40, "30");
-            //System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(500);
             //backgroundWorker1.ReportProgress(50, "30");
-            //System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(500);
             //backgroundWorker1.ReportProgress(60, "30");
-            //System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(500);
             //backgroundWorker1.ReportProgress(70, "30");
-            //System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(500);
             //backgroundWorker1.ReportProgress(80, "30");
-            //System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(500);
             //backgroundWorker1.ReportProgress(90, "30");
-            //System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(500);
             //backgroundWorker1.ReportProgress(100, "30");
-            //System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(500);
            ////} 
 
             DirSize _dir = new DirSize();
@@ -95,33 +116,42 @@ namespace Collapsible
             {
                 try
                 {
-                    fileEnumPRogress++;
-                    if (fileEnumPRogress != 100)
+                    if (fileEnumPRogress < 99)
                     {
-                        
-                        System.Threading.Thread.Sleep(1000);
-                        backgroundWorker1.ReportProgress(fileEnumPRogress, "\nDeleting...\n"+ file.FullName + "\n");
-                        file.Delete();
-                        System.Diagnostics.Debug.WriteLine(file + "\n");
-
+                        fileEnumPRogress++;
                     }
+
+
+                    System.Threading.Thread.Sleep(500);
+                        file.Delete();
+                        
+                        backgroundWorker1.ReportProgress(fileEnumPRogress, "Deleting...     " + file.FullName + "");
+                        System.Diagnostics.Debug.WriteLine(file + "");
+
+                   
                     
 
                 }
-                ///\nfile in use
+                ///file in use
                 catch (System.IO.IOException)
                 {
-                    fileEnumPRogress++;
-                    System.Diagnostics.Debug.WriteLine(file.FullName + "\n" + "\n");
-                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\nfile in use...\n" + file.FullName + "\n");
+                    //if (fileEnumPRogress < 99)
+                    //{
+                    //    fileEnumPRogress++;
+                    //}
+                    System.Diagnostics.Debug.WriteLine(file.FullName + "" + "");
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "file in use...      " + file.FullName + "");
 
                 }
-                ///\nno rights to access the file
+                ///no rights to access the file
                 catch (System.UnauthorizedAccessException)
                 {
-                    fileEnumPRogress++;
-                    System.Diagnostics.Debug.WriteLine(file.FullName + "\n" + "\n");
-                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\nno rights to access the file...\n" + file.FullName + "\n");
+                    //if (fileEnumPRogress < 99)
+                    //{
+                    //    fileEnumPRogress++;
+                    //}
+                    System.Diagnostics.Debug.WriteLine(file.FullName + "" + "");
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "no rights to access the file...     " + file.FullName + "");
                 }
             }
 
@@ -130,28 +160,38 @@ namespace Collapsible
             {
                 try
                 {
-                    fileEnumPRogress++;
-                    System.Threading.Thread.Sleep(1000);
-                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\nDeleting...\n" + subDirectory.FullName + "\n");
+                    //if (fileEnumPRogress < 99)
+                    //{
+                    //    fileEnumPRogress++;
+                    //}
+                    System.Threading.Thread.Sleep(500);
+                    
                     subDirectory.Delete(true);
-                    System.Diagnostics.Debug.WriteLine(subDirectory + "\n");
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "Deleting...     " + subDirectory.FullName + "");
+                    System.Diagnostics.Debug.WriteLine(subDirectory + "");
                     
                 }
 
                 catch (System.UnauthorizedAccessException)
                 {
-                    ///\nno rights to access the file
-                    fileEnumPRogress++;
-                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\nDeleting...\n" + subDirectory.FullName + "\n");
-                    System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "\n" + "\n");
+                    ///no rights to access the file
+                    //if (fileEnumPRogress < 99)
+                    //{
+                    //    fileEnumPRogress++;
+                    //}
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "no rights to access the directory...     " + subDirectory.FullName + "");
+                    System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "" + "");
                 }
 
                 catch (System.IO.IOException)
                 {
                     ///directory in use
-                    fileEnumPRogress++;
-                    backgroundWorker1.ReportProgress(fileEnumPRogress, "\ndirectory in use...\n" + subDirectory.FullName + "\n");
-                    System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "\n" + "\n");
+                    if (fileEnumPRogress < 99)
+                    //{
+                    //    fileEnumPRogress++;
+                    //}
+                    backgroundWorker1.ReportProgress(fileEnumPRogress, "directory in use...     " + subDirectory.FullName + "");
+                    System.Diagnostics.Debug.WriteLine(subDirectory.FullName + "" + "");
                 }
             }
 
@@ -160,19 +200,9 @@ namespace Collapsible
 
             backgroundWorker1.ReportProgress(100, "");
 
-            
 
 
-
-
-
-
-
-
-          
-            
-
-           e.Result = 1;
+           e.Result = fileEnumPRogress;
         }
 
    
@@ -191,11 +221,18 @@ namespace Collapsible
                 if (e.ProgressPercentage == 100)
                 {
                     this.ImgScrollBell.Image = null;
+                   
                 }
 
-
                 this.lblUpdateFile.Text = e.UserState.ToString();
-                this.textBoxDetail.Text += (e.UserState.ToString() + "\r\n");
+                this.textBoxDetail.Text += (e.UserState.ToString() + "\r");
+            //autoscroll TextBox    
+            this.textBoxDetail.Refresh();    
+                this.textBoxDetail.SelectionStart = this.textBoxDetail.Text.Length;
+                this.textBoxDetail.ScrollToCaret();
+
+            
+                
         }
 
         
@@ -210,7 +247,9 @@ namespace Collapsible
             else if (e.Error != null)
                 Console.WriteLine("Worker exception: " + e.Error.ToString());
             else
-                Console.WriteLine("Complete: " + e.Result); //
+                Console.WriteLine("Complete: " + e.Result); //result returns the number of files
+
+            this.lblUpdateFile.Text = "Number of Files : " + e.Result;
         }
     }
 }

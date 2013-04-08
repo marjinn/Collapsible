@@ -42,11 +42,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ImgScrollBell = new System.Windows.Forms.PictureBox();
             this.btnCollapse = new System.Windows.Forms.Button();
+            this.lblUpdateFile = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblUpdateFile = new System.Windows.Forms.Label();
-            this.textBoxDetail = new System.Windows.Forms.TextBox();
+            this.textBoxDetail = new System.Windows.Forms.RichTextBox();
             this.Details = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSpinBalls)).BeginInit();
@@ -73,7 +73,7 @@
             this.labelFileDownloadSize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelFileDownloadSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFileDownloadSize.ForeColor = System.Drawing.Color.White;
-            this.labelFileDownloadSize.Location = new System.Drawing.Point(527, 95);
+            this.labelFileDownloadSize.Location = new System.Drawing.Point(513, 95);
             this.labelFileDownloadSize.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFileDownloadSize.Name = "labelFileDownloadSize";
             this.labelFileDownloadSize.Size = new System.Drawing.Size(151, 16);
@@ -101,7 +101,7 @@
             this.bottomLabelProgress.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bottomLabelProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bottomLabelProgress.ForeColor = System.Drawing.Color.White;
-            this.bottomLabelProgress.Location = new System.Drawing.Point(199, 95);
+            this.bottomLabelProgress.Location = new System.Drawing.Point(209, 95);
             this.bottomLabelProgress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bottomLabelProgress.Name = "bottomLabelProgress";
             this.bottomLabelProgress.Size = new System.Drawing.Size(142, 16);
@@ -166,6 +166,7 @@
             // 
             this.groupBox3.Controls.Add(this.ImgScrollBell);
             this.groupBox3.Controls.Add(this.btnCollapse);
+            this.groupBox3.Controls.Add(this.lblUpdateFile);
             this.groupBox3.Controls.Add(this.bottomLabelProgress);
             this.groupBox3.Controls.Add(this.labelFileDownloadSize);
             this.groupBox3.Controls.Add(this.groupBox2);
@@ -203,6 +204,16 @@
             this.btnCollapse.MouseEnter += new System.EventHandler(this.btnCollapse_MouseEnter);
             this.btnCollapse.MouseLeave += new System.EventHandler(this.btnCollapse_MouseLeave);
             // 
+            // lblUpdateFile
+            // 
+            this.lblUpdateFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateFile.ForeColor = System.Drawing.Color.White;
+            this.lblUpdateFile.Location = new System.Drawing.Point(212, 93);
+            this.lblUpdateFile.Name = "lblUpdateFile";
+            this.lblUpdateFile.Size = new System.Drawing.Size(449, 25);
+            this.lblUpdateFile.TabIndex = 4;
+            this.lblUpdateFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // toolTip1
             // 
             this.toolTip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -218,49 +229,40 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox4.Controls.Add(this.lblUpdateFile);
             this.groupBox4.Controls.Add(this.textBoxDetail);
-            this.groupBox4.Controls.Add(this.Details);
             this.groupBox4.Location = new System.Drawing.Point(6, 125);
+            this.groupBox4.MaximumSize = new System.Drawing.Size(690, 215);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(690, 185);
+            this.groupBox4.Size = new System.Drawing.Size(690, 214);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             // 
-            // lblUpdateFile
-            // 
-            this.lblUpdateFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateFile.ForeColor = System.Drawing.Color.White;
-            this.lblUpdateFile.Location = new System.Drawing.Point(110, 157);
-            this.lblUpdateFile.Name = "lblUpdateFile";
-            this.lblUpdateFile.Size = new System.Drawing.Size(568, 25);
-            this.lblUpdateFile.TabIndex = 4;
-            this.lblUpdateFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBoxDetail
             // 
+            this.textBoxDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(64)))), ((int)(((byte)(66)))));
             this.textBoxDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDetail.BulletIndent = 8;
+            this.textBoxDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDetail.ForeColor = System.Drawing.Color.White;
-            this.textBoxDetail.Location = new System.Drawing.Point(8, 30);
-            this.textBoxDetail.Multiline = true;
+            this.textBoxDetail.Location = new System.Drawing.Point(13, 19);
+            this.textBoxDetail.Margin = new System.Windows.Forms.Padding(10);
             this.textBoxDetail.Name = "textBoxDetail";
             this.textBoxDetail.ReadOnly = true;
-            this.textBoxDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDetail.Size = new System.Drawing.Size(670, 116);
-            this.textBoxDetail.TabIndex = 3;
+            this.textBoxDetail.Size = new System.Drawing.Size(665, 175);
+            this.textBoxDetail.TabIndex = 5;
+            this.textBoxDetail.Text = "";
             // 
             // Details
             // 
             this.Details.AutoSize = true;
             this.Details.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Details.ForeColor = System.Drawing.Color.White;
-            this.Details.Location = new System.Drawing.Point(10, 164);
+            this.Details.Location = new System.Drawing.Point(16, 322);
             this.Details.Name = "Details";
             this.Details.Size = new System.Drawing.Size(94, 16);
             this.Details.TabIndex = 2;
@@ -271,8 +273,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(64)))), ((int)(((byte)(66)))));
-            this.ClientSize = new System.Drawing.Size(702, 388);
+            this.ClientSize = new System.Drawing.Size(702, 347);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.Details);
             this.Controls.Add(this.labelProgressPercentage);
             this.Controls.Add(this.topLabelProgress);
             this.Controls.Add(this.groupBox1);
@@ -290,7 +293,6 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgScrollBell)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,11 +313,11 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBoxDetail;
         private System.Windows.Forms.Label Details;
         private System.Windows.Forms.PictureBox ImgScrollBell;
         private System.Windows.Forms.PictureBox picSpinBalls;
         private System.Windows.Forms.Label lblUpdateFile;
+        private System.Windows.Forms.RichTextBox textBoxDetail;
     }
 }
 
