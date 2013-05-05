@@ -26,9 +26,37 @@ namespace Collapsible
             set {
                 strRichBoxText = value;
             }
-        }
+        }//StrRichBoxText
 
+        private bool isCollapsed = true;
 
+        public bool ISCollapsed
+        {
+            get
+            {
+                return isCollapsed;
+            }
+            set
+            {
+                isCollapsed = value;
+            }
+        }//ISCollapsed
+
+        private bool isBWColplete = false;
+
+        public bool ISBWColplete
+        {
+            get
+            {
+                return isBWColplete;
+            }
+            set
+            {
+                isBWColplete = value;
+            }
+        }//ISBWColplete
+        
+        
         //all label Values like lblUpdateFile
 
 
@@ -41,7 +69,7 @@ namespace Collapsible
             backgroundWorker1.RunWorkerAsync("Hello to worker");
 
             
-        }
+        }//CP()
 
         private void btnCollapse_Click(object sender, EventArgs e)
         {
@@ -49,34 +77,46 @@ namespace Collapsible
            //panel expanded
             if(this.btnCollapseClicked == true)
             {
+                this.isCollapsed = false;
                 this.toolTip1.SetToolTip(this.btnCollapse, "Fewer Details");
                 this.Details.Text = string.Empty;
                 this.Size = new Size(702, 347);
             this.btnCollapse.Image = Properties.Resources.uparrowfw;
             this.btnCollapseClicked = false;
 
-            }
+
+            }//if
             
                 //panel collapsed
             else 
             {
+                this.isCollapsed = true;
                 this.toolTip1.SetToolTip(this.btnCollapse, "More Details");
                 this.Details.Text = "More Details";
                 this.Size = new Size(702, 131 );
                 this.btnCollapse.Image = Properties.Resources.downarrowfw;
                 this.btnCollapseClicked = true;
-            }
-        }
+
+                if (this.ISBWColplete == true)
+                {
+                    this.Close();
+                    Application.Exit();
+                }
+
+
+
+            }//else
+        }//btnCollapse_Click
 
         private void btnCollapse_MouseEnter(object sender, EventArgs e)
         {
             this.btnCollapse.Cursor = System.Windows.Forms.Cursors.Hand;
-        }
+        }//btnCollapse_MouseEnter
 
         private void btnCollapse_MouseLeave(object sender, EventArgs e)
         {
             this.btnCollapse.Cursor = System.Windows.Forms.Cursors.Default;
-        }
+        }//btnCollapse_MouseLeave
 
         
            
@@ -203,7 +243,7 @@ namespace Collapsible
 
 
            e.Result = fileEnumPRogress;
-        }
+        }//backgroundWorker1_DoWork
 
    
         private void backgroundWorker1_ProgressChanged(object sender, 
@@ -233,7 +273,7 @@ namespace Collapsible
 
             
                 
-        }
+        }//backgroundWorker1_ProgressChanged
 
         
 
@@ -250,6 +290,17 @@ namespace Collapsible
                 Console.WriteLine("Complete: " + e.Result); //result returns the number of files
 
             this.lblUpdateFile.Text = "Number of Files : " + e.Result;
-        }
-    }
-}
+
+            //if panel collapsed then exit
+
+            if (this.ISCollapsed == true)//collapsed
+            {
+                this.Close();
+                Application.Exit();
+            }
+
+            this.ISBWColplete = true;
+        }//backgroundWorker1_RunWorkerCompleted
+    
+    }//class CP
+}//namespace Collapsible
